@@ -3,6 +3,7 @@ import { commandExit } from './command_exit.js';
 import { commandMapForward, commandMapBack } from './command_map.js';
 import { commandExplore } from './command_explore.js';
 import { commandCatch } from './command_catch.js';
+import { commandInspect } from './command_inspect.js';
 import type { CLICommand } from '../state.js';
 
 export function getCommands(): Record<string, CLICommand> {
@@ -12,7 +13,7 @@ export function getCommands(): Record<string, CLICommand> {
 			description: 'Displays a help message',
 			callback: commandHelp,
 		},
-		exit: {
+		c: {
 			name: 'c',
 			description: 'Exit the Pokedex',
 			callback: commandExit,
@@ -28,14 +29,19 @@ export function getCommands(): Record<string, CLICommand> {
 			callback: commandMapBack,
 		},
 		explore: {
-			name: 'explore',
+			name: 'explore <location_name>',
 			description: 'Explore a location',
 			callback: commandExplore,
 		},
 		catch: {
-			name: 'catch',
+			name: 'catch <pokemon_name>',
 			description: 'Catch a pokemon',
 			callback: commandCatch,
+		},
+		inspect: {
+			name: 'inspect <pokemon_name>',
+			description: 'Inspect a pokemon',
+			callback: commandInspect,
 		},
 	};
 }

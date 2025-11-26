@@ -129,4 +129,11 @@ export type Pokemon = {
 			url: string;
 		};
 	}>;
+	stats: Array<{
+		base_stat: number;
+		stat: {
+			name: string;
+			url: string;
+		};
+	}>;
 };

@@ -20,17 +20,11 @@ export async function commandCatch(state: State, args: string[]) {
 			// Add Pokemon to pokedex
 			state.pokedex[pokemon.name] = pokemon;
 			console.log(`${pokemon.name} was caught!`);
+			console.log('You may now inspect it with the inspect command.');
 		} else {
 			console.log(`${pokemon.name} escaped!`);
 		}
 	} catch (error) {
-		const err = error as Error;
-		if (
-			err.message.includes('404') ||
-			err.message.includes('HTTP error! status: 404')
-		) {
-			throw new Error(`Could not find Pokemon: ${pokemonName}`);
-		}
-		throw error;
+		console.log(`Could not find Pokemon: ${pokemonName}`);
 	}
 }
